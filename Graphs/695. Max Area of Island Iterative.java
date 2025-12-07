@@ -4,7 +4,7 @@ class Solution {
     int[][] mat;
     int max = 0;
 
-    private int bfs(int r, int c){
+    private int dfs(int r, int c){
         
         int ret = 1;
         mat[r][c] = 0;
@@ -48,7 +48,7 @@ class Solution {
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
                 if(mat[i][j] == 1){
-                    max = Math.max(bfs(i, j), max);
+                    max = Math.max(dfs(i, j), max);
                 }
             }
         }
