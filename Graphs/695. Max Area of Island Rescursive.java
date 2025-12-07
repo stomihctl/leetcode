@@ -4,7 +4,7 @@ class Solution {
     int[][] mat;
     int max = 0;
 
-    private int bfs(int r, int c){
+    private int dfs(int r, int c){
         if(mat[r][c] == 0){
             return 0;
         }
@@ -12,16 +12,16 @@ class Solution {
             int ret = 1;
             mat[r][c] = 0;
             if(r > 0){
-                ret += bfs(r - 1, c);
+                ret += dfs(r - 1, c);
             }
             if(c > 0){
-                ret += bfs(r, c - 1);
+                ret += dfs(r, c - 1);
             }
             if(r < row - 1){
-                ret += bfs(r + 1, c);
+                ret += dfs(r + 1, c);
             }
             if( c < col - 1){
-                ret += bfs(r, c + 1);
+                ret += dfs(r, c + 1);
             }
             return ret;
         }
@@ -35,7 +35,7 @@ class Solution {
         for(int i = 0; i < row; i++){
             for(int j = 0; j < col; j++){
                 if(mat[i][j] == 1){
-                    max = Math.max(bfs(i, j), max);
+                    max = Math.max(dfs(i, j), max);
                 }
             }
         }
