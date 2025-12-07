@@ -30,14 +30,14 @@ class Solution {
     int row;
     int col;
 
-    void bfs(int r, int c){
+    void dfs(int r, int c){
         if(r >= 0 && c >= 0 && r < this.row && c < this.col && grid[r][c] == '1' ){
             grid[r][c] = '0';
             //System.out.println(r +   + c);
-            bfs(r - 1, c);
-            bfs(r, c - 1);
-            bfs(r + 1, c);
-            bfs(r, c + 1);            
+            dfs(r - 1, c);
+            dfs(r, c - 1);
+            dfs(r + 1, c);
+            dfs(r, c + 1);            
         }
     }
 
@@ -53,7 +53,7 @@ class Solution {
             for(int c = 0; c < col; c++){
                 if(grid[r][c] == '1'){
                     //System.out.println(---------------------);
-                    bfs(r , c);
+                    dfs(r , c);
                     islands++;
                 }
             }
@@ -61,4 +61,5 @@ class Solution {
 
         return islands;
     }
+
 }
