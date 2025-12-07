@@ -3,7 +3,7 @@ class Solution {
     int row;
     int col;
 
-    void bfs(int r, int c){
+    void dfs(int r, int c){
 
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{r, c});
@@ -41,7 +41,7 @@ class Solution {
         for(int r = 0; r < row; r++){
             for(int c = 0; c < col; c++){
                 if(grid[r][c] == '1'){
-                    bfs(r , c);
+                    dfs(r , c);
                     islands++;
                 }
             }
@@ -49,4 +49,5 @@ class Solution {
 
         return islands;
     }
+
 }
